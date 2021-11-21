@@ -1,4 +1,41 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+}
+
+.btnWrap {
+  display: flex;
+  gap: 20px;
+}
+
 .btn {
   background-color: royalblue;
   color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px dotted steelblue;
+}
+
+.list > .item:last-child {
+  border-bottom: none;
 }
