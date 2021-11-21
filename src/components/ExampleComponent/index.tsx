@@ -2,7 +2,13 @@ import { useState, VFC } from 'react'
 
 import styles from './styles.module.css'
 
-export const ExampleComponent: VFC = () => {
+export type ExampleComponentProps = {
+  onClickFoo: () => void
+}
+
+export const ExampleComponent: VFC<ExampleComponentProps> = ({
+  onClickFoo,
+}: ExampleComponentProps) => {
   const [rows, setRows] = useState<string[]>([])
 
   const handleClickAdd = () => {
@@ -23,6 +29,9 @@ export const ExampleComponent: VFC = () => {
         </button>
         <button className={styles.btn} onClick={handleClickReset}>
           Reset
+        </button>
+        <button className={styles.btn} onClick={onClickFoo}>
+          Foo
         </button>
       </div>
       <ul className={styles.list}>

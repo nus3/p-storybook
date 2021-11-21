@@ -2,6 +2,10 @@ const path = require('path')
 
 module.exports = {
   stories: ['../src/components/**/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-interactions'],
+  features: {
+    interactionsDebugger: true,
+  },
   webpackFinal: (baseConfig) => {
     // NOTE: tsconfigのbaseUrlの対応
     baseConfig.resolve.modules = [
