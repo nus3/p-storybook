@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { CSSProperties, useEffect, useRef, VFC } from 'react'
 import gsap from 'gsap'
 import classnames from 'classnames'
@@ -14,25 +16,6 @@ const calcXY =
     callback: (x: number, y: number) => void,
   ) =>
   ({ x, y }: PointerEvent) => {
-    // const elementBounds = element.getBoundingClientRect()
-    // const centerX = elementBounds.left + elementBounds.width / 2
-    // const centerY = elementBounds.top + elementBounds.height / 2
-    // const boundX = gsap.utils.mapRange(
-    //   centerX - proximity,
-    //   centerX + proximity,
-    //   -bounds,
-    //   bounds,
-    //   x,
-    // )
-    // const boundY = gsap.utils.mapRange(
-    //   centerY - proximity,
-    //   centerY + proximity,
-    //   -bounds,
-    //   bounds,
-    //   y,
-    // )
-    // callback(boundX, boundY)
-
     const elementBounds = element.getBoundingClientRect()
     const centerX = elementBounds.left + elementBounds.width / 2
     const centerY = elementBounds.top + elementBounds.height / 2
@@ -86,7 +69,9 @@ export const Parallax: VFC<ParallaxProps> = ({}: ParallaxProps) => {
   return (
     <div className={styles.hoo}>
       <div className={styles.wrap} ref={containerRef}>
-        <div
+        <img
+          src="/icons/a.png"
+          alt="icon of a"
           className={classnames(styles.item, styles.item1)}
           style={
             {
@@ -99,7 +84,9 @@ export const Parallax: VFC<ParallaxProps> = ({}: ParallaxProps) => {
             } as ItemCSSCustomProperties
           }
         />
-        <div
+        <img
+          src="/icons/b.png"
+          alt="icon of b"
           className={classnames(styles.item, styles.item2)}
           style={
             {
@@ -113,7 +100,9 @@ export const Parallax: VFC<ParallaxProps> = ({}: ParallaxProps) => {
             } as ItemCSSCustomProperties
           }
         />
-        <div
+        <img
+          src="/icons/c.png"
+          alt="icon of c"
           className={classnames(styles.item, styles.item3)}
           style={
             {
