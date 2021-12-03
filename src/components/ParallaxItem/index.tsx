@@ -82,3 +82,7 @@ export const ParallaxItem: VFC<ParallaxItemProps> = ({ config, children }) => {
     </div>
   )
 }
+
+ParallaxItem.defaultProps = {
+  config: DEFAULT_CONFIG,
+}

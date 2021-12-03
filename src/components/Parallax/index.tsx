@@ -1,16 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { CSSProperties, useEffect, useRef, VFC } from 'react'
+import { CSSProperties, ReactNode, useCallback, useRef, VFC } from 'react'
 import gsap from 'gsap'
-import classnames from 'classnames'
 
 import styles from './styles.module.css'
+import { useParallax } from 'components/Parallax/hook'
 
-export type ParallaxProps = {}
+type ParallaxConfig = {
+  coefficientX?: number
+  coefficientY?: number
+  rotate?: number
+  rotateX?: number
+  rotateY?: number
+}
+
+interface ContainerCSS extends CSSProperties {
+  '--r': number
+  '--rx': number
+  '--ry': number
+}
+
+export type ParallaxProps = {
+  config: ParallaxConfig
+  children: ReactNode | ReactNode[]
+}
 
 const calcXY =
   (
-    element: EventTarget & HTMLDivElement,
+    element: HTMLDivElement,
     proximity: number,
     bounds: number,
     callback: (x: number, y: number) => void,
@@ -36,87 +53,44 @@ const calcXY =
     callback(boundX, boundY)
   }
 
-interface ItemCSSCustomProperties extends CSSProperties {
-  '--move-x': number
-  '--move-y': number
-  '--rotate': number
-  '--x': number
-  '--y': number
-  '--size': number
-  '--hue': number
-}
-
-export const Parallax: VFC<ParallaxProps> = ({}: ParallaxProps) => {
+export const Parallax: VFC<ParallaxProps> = ({ config, children }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  const callback = useCallback((x: number, y: number) => {
     if (!containerRef.current) return
 
-    document.addEventListener(
-      'pointermove',
-      calcXY(containerRef.current, 100, 100, (x, y) => {
-        const clampedX = Math.floor(gsap.utils.clamp(-100, 100, x)) / 100
-        const clampedY = Math.floor(gsap.utils.clamp(-100, 100, y)) / 100
-
-        if (!containerRef.current) return
-
-        containerRef.current.style.setProperty('--ratio-x', `${clampedX}`)
-        containerRef.current.style.setProperty('--ratio-y', `${clampedY}`)
-      }),
+    containerRef.current.style.setProperty(
+      '--range-x',
+      `${Math.floor(gsap.utils.clamp(-60, 60, x * 100))}`,
     )
-  }, [containerRef])
+    containerRef.current.style.setProperty(
+      '--range-y',
+      `${Math.floor(gsap.utils.clamp(-60, 60, y * 100))}`,
+    )
+  }, [])
+
+  // window.innerWidth * 0.5が実際のコードと違うからバグったならここが原因かも
+  useParallax(callback, containerRef, window.innerWidth * 0.5)
 
   return (
-    <div className={styles.hoo}>
-      <div className={styles.wrap} ref={containerRef}>
-        <img
-          src="/icons/a.png"
-          alt="icon of a"
-          className={classnames(styles.item, styles.item1)}
-          style={
-            {
-              '--move-x': -1,
-              '--rotate': 90,
-              '--x': 10,
-              '--y': 60,
-              '--size': 30,
-              '--hue': 220,
-            } as ItemCSSCustomProperties
-          }
-        />
-        <img
-          src="/icons/b.png"
-          alt="icon of b"
-          className={classnames(styles.item, styles.item2)}
-          style={
-            {
-              '--move-x': 1.6,
-              '--move-y': -2,
-              '--rotate': -45,
-              '--x': 75,
-              '--y': 20,
-              '--size': 50,
-              '--hue': 240,
-            } as ItemCSSCustomProperties
-          }
-        />
-        <img
-          src="/icons/c.png"
-          alt="icon of c"
-          className={classnames(styles.item, styles.item3)}
-          style={
-            {
-              '--move-x': -3,
-              '--move-y': 1,
-              '--rotate': 360,
-              '--x': 75,
-              '--y': 80,
-              '--size': 40,
-              '--hue': 260,
-            } as ItemCSSCustomProperties
-          }
-        />
-      </div>
+    <div
+      className={styles.parallax}
+      ref={containerRef}
+      style={
+        {
+          '--r': config.rotate,
+          '--rx': config.rotateX,
+          '--ry': config.rotateY,
+        } as ContainerCSS
+      }
+    >
+      {children}
     </div>
   )
 }
+
+export const ParallaxWrapper = ({
+  children,
+}: {
+  children: React.ReactNode
+}) => <div className={styles.wrap}>{children}</div>
