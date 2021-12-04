@@ -43,7 +43,6 @@ export const Parallax: VFC<ParallaxProps> = ({ config }) => {
     )
   }, [])
 
-  // window.innerWidth * 0.5が実際のコードと違うからバグったならここが原因かも
   useParallax(callback, containerRef, window.innerWidth * 0.5)
 
   return (
