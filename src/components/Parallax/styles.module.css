@@ -1,62 +1,32 @@
-.hoo {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  background: hsl(260, 50%, 50%);
-  transform-style: preserve-3d;
-  perspective: 50vmin;
-  overflow: hidden;
-}
-
 .wrap {
   display: grid;
-  position: relative;
-  width: 135px;
-  height: 135px;
-  border-radius: 50%;
-  background-color: hsl(25, 100%, 80%);
-  transition: transform 0.1s;
-  transform: rotateY(calc(var(--ratio-x, 0) * 20deg))
-    rotateX(calc(var(--ratio-y, 0) * -20deg));
-  /* varの第二引数はfallbackの値 */
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  touch-action: none;
+  background-color: #2e4c6d;
 }
 
-.wrap::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  background: hsla(280, 50%, 80%, 0.5);
-  transform: translate(-50%, -50%);
-  z-index: -1;
+.parallax {
+  height: 65vmin;
+  width: 65vmin;
+  transform: translate3d(0, 0, 100vmin)
+    rotateX(
+      calc(((var(--rx, 0) * var(--range-y, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotateY(
+      calc(((var(--ry, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotate(
+      calc(((var(--r, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    );
+  transform-style: preserve-3d;
+  /* Trick to make the perfect square */
+  /* padding-bottom: 100%; */
 }
 
 .item {
-  position: absolute;
-  top: calc(var(--y, 0) * 1%);
-  left: calc(var(--x, 0) * 1%);
-  height: calc(var(--size, 20) * 1px);
-  width: calc(var(--size, 20) * 1px);
-  transition: transform 0.1s;
-  transform: translate(-50%, -50%)
-    translate(
-      calc(var(--move-x, 0) * var(--ratio-x, 0) * 100%),
-      calc(var(--move-y, 0) * var(--ratio-y, 0) * 100%)
-    )
-    rotate(calc(var(--rotate, 0) * var(--ratio-x, 0) * 1deg));
-}
-
-.item1 {
-  color: coral;
-}
-
-.item2 {
-  color: darkgreen;
-}
-
-.item3 {
-  color: dodgerblue;
+  height: 100%;
+  width: 100%;
 }

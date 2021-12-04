@@ -12,6 +12,7 @@ interface ItemCSS extends React.CSSProperties {
   '--my': number
   '--height': number
   '--width': number
+  '--motion-rate': number
 }
 
 type ParallaxItemConfig = {
@@ -25,6 +26,7 @@ type ParallaxItemConfig = {
   moveY?: number
   height?: number
   width?: number
+  motionRate?: number
 }
 
 const DEFAULT_CONFIG: ParallaxItemConfig = {
@@ -39,6 +41,7 @@ const DEFAULT_CONFIG: ParallaxItemConfig = {
   rotateY: 0,
   moveX: 0,
   moveY: 0,
+  motionRate: 1,
 }
 
 type ParallaxItemProps = {

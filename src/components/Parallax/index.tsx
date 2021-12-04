@@ -5,55 +5,28 @@ import gsap from 'gsap'
 
 import styles from './styles.module.css'
 import { useParallax } from 'components/Parallax/hook'
+import { ITEMS } from 'components/ParallaxItem/item'
+import { ParallaxItem } from 'components/ParallaxItem'
 
 type ParallaxConfig = {
-  coefficientX?: number
-  coefficientY?: number
   rotate?: number
   rotateX?: number
   rotateY?: number
+  motionRate?: number
 }
 
 interface ContainerCSS extends CSSProperties {
   '--r': number
   '--rx': number
   '--ry': number
+  '--motion-rate': number
 }
 
 export type ParallaxProps = {
   config: ParallaxConfig
-  children: ReactNode | ReactNode[]
 }
 
-const calcXY =
-  (
-    element: HTMLDivElement,
-    proximity: number,
-    bounds: number,
-    callback: (x: number, y: number) => void,
-  ) =>
-  ({ x, y }: PointerEvent) => {
-    const elementBounds = element.getBoundingClientRect()
-    const centerX = elementBounds.left + elementBounds.width / 2
-    const centerY = elementBounds.top + elementBounds.height / 2
-    const boundX = gsap.utils.mapRange(
-      centerX - proximity,
-      centerX + proximity,
-      -bounds,
-      bounds,
-      x,
-    )
-    const boundY = gsap.utils.mapRange(
-      centerY - proximity,
-      centerY + proximity,
-      -bounds,
-      bounds,
-      y,
-    )
-    callback(boundX, boundY)
-  }
-
-export const Parallax: VFC<ParallaxProps> = ({ config, children }) => {
+export const Parallax: VFC<ParallaxProps> = ({ config }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const callback = useCallback((x: number, y: number) => {
@@ -81,10 +54,19 @@ export const Parallax: VFC<ParallaxProps> = ({ config, children }) => {
           '--r': config.rotate,
           '--rx': config.rotateX,
           '--ry': config.rotateY,
+          '--motion-rate': config.motionRate,
         } as ContainerCSS
       }
     >
-      {children}
+      {ITEMS.map((item) => (
+        <ParallaxItem key={item.key} config={item.config}>
+          <img
+            className={styles.item}
+            src={`/icons/${item.name}.png`}
+            alt={`${item.name} icon`}
+          />
+        </ParallaxItem>
+      ))}
     </div>
   )
 }
