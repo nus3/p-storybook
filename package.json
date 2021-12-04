@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 9009 -s ./public",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "STORYBOOK_MODE=true build-storybook -s ./public"
   },
   "dependencies": {
     "classnames": "2.3.1",
