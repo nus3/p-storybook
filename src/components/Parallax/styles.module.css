@@ -1,0 +1,32 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  touch-action: none;
+  background-color: #2e4c6d;
+}
+
+.parallax {
+  height: 65vmin;
+  width: 65vmin;
+  transform: translate3d(0, 0, 100vmin)
+    rotateX(
+      calc(((var(--rx, 0) * var(--range-y, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotateY(
+      calc(((var(--ry, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotate(
+      calc(((var(--r, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    );
+  transform-style: preserve-3d;
+  /* Trick to make the perfect square */
+  /* padding-bottom: 100%; */
+}
+
+.item {
+  height: 100%;
+  width: 100%;
+}

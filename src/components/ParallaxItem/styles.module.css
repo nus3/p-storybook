@@ -1,0 +1,23 @@
+.wrap {
+  position: absolute;
+  left: calc(var(--x, 50) * 1%);
+  top: calc(var(--y, 50) * 1%);
+  height: calc(var(--height, auto) * 1%);
+  width: calc(var(--width, auto) * 1%);
+  transform: translate(-50%, -50%)
+    translate3d(
+      calc(((var(--mx, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1%),
+      calc(((var(--my, 0) * var(--range-y, 0)) * var(--motion-rate)) * 1%),
+      calc(var(--z, 0) * 1vmin)
+    )
+    rotateX(
+      calc(((var(--rx, 0) * var(--range-y, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotateY(
+      calc(((var(--ry, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    )
+    rotate(
+      calc(((var(--r, 0) * var(--range-x, 0)) * var(--motion-rate)) * 1deg)
+    );
+  transform-style: preserve-3d;
+}
