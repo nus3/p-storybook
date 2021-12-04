@@ -5,10 +5,10 @@ type Item = {
     positionX: number
     positionY: number
     positionZ?: number
-    moveX?: number
-    moveY?: number
     height?: number
     width?: number
+    moveX?: number
+    moveY?: number
     rotate?: number
   }
 }
