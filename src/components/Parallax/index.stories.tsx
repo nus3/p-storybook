@@ -19,6 +19,8 @@ const Template: Story = () => (
     <Parallax
       config={{
         motionRate: 1,
+        rotateX: 0.1,
+        rotateY: 0.25,
       }}
     />
   </ParallaxWrapper>
