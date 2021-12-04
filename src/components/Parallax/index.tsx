@@ -7,6 +7,7 @@ import styles from './styles.module.css'
 import { useParallax } from 'components/Parallax/hook'
 import { ITEMS } from 'components/ParallaxItem/item'
 import { ParallaxItem } from 'components/ParallaxItem'
+import { createPublicPath } from 'utils/path'
 
 type ParallaxConfig = {
   rotate?: number
@@ -62,7 +63,7 @@ export const Parallax: VFC<ParallaxProps> = ({ config }) => {
         <ParallaxItem key={item.key} config={item.config}>
           <img
             className={styles.item}
-            src={`/icons/${item.name}.png`}
+            src={createPublicPath(`/icons/${item.name}.png`)}
             alt={`${item.name} icon`}
           />
         </ParallaxItem>
