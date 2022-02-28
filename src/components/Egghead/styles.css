@@ -1,0 +1,28 @@
+.wrap {
+  background-color: var(--bg);
+  min-height: 100vh;
+  --bg: #ffd500;
+  --size: 50;
+  /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
+  /* 1vminは値が小さい方の0.01倍になる */
+  --unit: calc((var(--size) / 769) * 1vmin);
+}
+
+.img {
+  opacity: 0.5;
+}
+
+.egg {
+  background-color: hsla(0, 100%, 50%, 0.2);
+}
+
+img,
+.egg {
+  /* 元の画像の高さと幅をビューポート分、掛けることでレスポンシブにしている */
+  height: calc(769 * var(--unit));
+  width: calc(742 * var(--unit));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
