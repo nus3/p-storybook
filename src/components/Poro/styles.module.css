@@ -10,7 +10,7 @@
   min-height: 100vh;
 }
 
-img {
+.img {
   height: 50vmin;
   left: 50%;
   opacity: 0.25;
