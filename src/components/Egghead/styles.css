@@ -2,6 +2,8 @@
   background-color: var(--bg);
   min-height: 100vh;
   --bg: #ffd500;
+  --shell: #fff;
+  --shell-outline: #666;
   --size: 50;
   /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
   /* 1vminは値が小さい方の0.01倍になる */
@@ -25,4 +27,52 @@ img,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.shell {
+  background-color: hsla(180, 100%, 50%, 0.2);
+  /* 実際に画面を見て微調整している */
+  height: 95%;
+  width: 74%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shell__piece--top {
+  opacity: 0.5;
+  height: 98%;
+  width: 95%;
+  /* 4角の丸みの半径を指定する際にスラッシュを指定すると水平方向 / 垂直方向になる */
+  /* また4つ指定した場合は左上・右上・右下・左下の順に指定される */
+  /* この場合、右上の水平方向の半径が50%, 垂直方向が85%になる */
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  top: 0;
+  clip-path: inset(0 0 70% 0);
+}
+
+.shell__piece--middle {
+  opacity: 0.5;
+  height: 100%;
+  width: 92%;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  clip-path: inset(29% 0 43% 0);
+}
+
+.shell__piece--bottom {
+  opacity: 0.5;
+  height: 60%;
+  width: 90%;
+  bottom: 0%;
+  border-radius: 50% / 10% 10% 55% 55%;
+  clip-path: inset(38% 0 0 0);
+}
+
+.shell__piece {
+  background-color: var(--shell);
+  position: absolute;
+  border: calc(26 * var(--unit)) solid var(--shell-outline);
+  transform: translate(-50%, 0);
+  left: 50%;
 }
