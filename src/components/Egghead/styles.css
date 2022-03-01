@@ -4,6 +4,7 @@
   --bg: #ffd500;
   --shell: #fff;
   --shell-outline: #666;
+  ---specs-frame: black;
   --size: 50;
   /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
   /* 1vminは値が小さい方の0.01倍になる */
@@ -18,7 +19,7 @@
   background-color: hsla(0, 100%, 50%, 0.2);
 }
 
-img,
+.img,
 .egg {
   /* 元の画像の高さと幅をビューポート分、掛けることでレスポンシブにしている */
   height: calc(769 * var(--unit));
@@ -38,6 +39,7 @@ img,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: none;
 }
 
 .shell__piece--top {
@@ -78,4 +80,25 @@ img,
   border: calc(26 * var(--unit)) solid var(--shell-outline);
   transform: translate(-50%, 0);
   left: 50%;
+}
+
+.specs {
+  background-color: hsla(180, 100%, 50%, 0.2);
+  height: 30.5%;
+  width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 30.5%;
+  transform: translate(-50%, 0);
+}
+
+.specs__lens {
+  opacity: 0.25;
+  border: calc(44 * var(--unit)) solid var(---specs-frame);
+  width: 46%;
+  height: 94%;
+  position: absolute;
+  top: 3%;
+  transform: rotate(-10deg);
+  border-radius: 20% 44% 27% 33% / 26% 29% 45% 30%;
 }

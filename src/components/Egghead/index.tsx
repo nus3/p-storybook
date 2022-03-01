@@ -14,14 +14,14 @@ export const Egghead: VFC = () => {
       />
       <div className="egg">
         <div className="specs__arms" />
-        <div className="egg_shell shell">
+        <div className="egg__shell shell">
           <div className="shell__piece shell__piece--top" />
           <div className="shell__piece shell__piece--middle" />
           <div className="shell__piece shell__piece--bottom" />
         </div>
-        <div className="egg_specs specs">
-          <div className="specs_lens specs__lens--left" />
-          <div className="specs_lens specs__lens--right" />
+        <div className="egg__specs specs">
+          <div className="specs__lens specs__lens--left" />
+          <div className="specs__lens specs__lens--right" />
           <div className="specs_bridge" />
         </div>
       </div>
