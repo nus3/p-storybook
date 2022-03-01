@@ -105,5 +105,6 @@
 
 .specs__lens--right {
   right: 0;
+  /* rotateYは要素を垂直軸を中心に回転させる */
   transform: rotate(10deg) rotateY(180deg);
 }
