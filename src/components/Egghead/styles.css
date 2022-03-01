@@ -39,6 +39,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: none;
 }
 
 .shell__piece--top {
@@ -89,7 +90,6 @@
   left: 50%;
   top: 30.5%;
   transform: translate(-50%, 0);
-  display: none;
 }
 
 .specs__lens {
@@ -101,4 +101,9 @@
   top: 3%;
   transform: rotate(-10deg);
   border-radius: 20% 44% 27% 33% / 26% 29% 45% 30%;
+}
+
+.specs__lens--right {
+  right: 0;
+  transform: rotate(10deg) rotateY(180deg);
 }
