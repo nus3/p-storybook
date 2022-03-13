@@ -1,0 +1,139 @@
+.wrap {
+  background-color: var(--bg);
+  min-height: 100vh;
+  --bg: #ffd500;
+  --shell: #fff;
+  --shell-outline: #666;
+  --specs-frame: #222;
+  --shadow-color: hsla(0, 0%, 10%, 0.5);
+  --size: 50;
+  /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
+  /* 1vminは値が小さい方の0.01倍になる */
+  --unit: calc((var(--size) / 769) * 1vmin);
+}
+
+.egg {
+  /* 元の画像の高さと幅をビューポート分、掛けることでレスポンシブにしている */
+  height: calc(769 * var(--unit));
+  width: calc(742 * var(--unit));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shell {
+  /* background-color: hsla(180, 100%, 50%, 0.2); */
+  /* 実際に画面を見て微調整している */
+  height: 95%;
+  width: 74%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shell__piece--top {
+  height: 108%;
+  width: 106%;
+  /* 4角の丸みの半径を指定する際にスラッシュを指定すると水平方向 / 垂直方向になる */
+  /* また4つ指定した場合は左上・右上・右下・左下の順に指定される */
+  /* この場合、右上の水平方向の半径が50%, 垂直方向が85%になる */
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  top: 0;
+  clip-path: inset(0 0 70% 0);
+}
+
+.shell__piece--middle {
+  height: 100%;
+  width: 98%;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  /* clip-pathを使うと、このクラスがあたっている要素の表示する領域を指定することができる */
+  /* insetは内部の長方形を定義する */
+  /* 4つの場合、上、右、下、左を指定する */
+  clip-path: inset(32% 0 40% 0);
+}
+
+.shell__piece--bottom {
+  border-radius: 50% / 62% 62% 38% 38%;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  clip-path: inset(58% 0 0 0);
+}
+
+.shell__piece {
+  background-color: var(--shell);
+  position: absolute;
+  border: calc(26 * var(--unit)) solid var(--shell-outline);
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+.specs {
+  /* background-color: hsla(180, 100%, 50%, 0.2); */
+  height: 30.5%;
+  width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 30.5%;
+  transform: translate(-50%, 0);
+}
+
+.specs__lens {
+  border: calc(44 * var(--unit)) solid var(--specs-frame);
+  width: 46%;
+  height: 94%;
+  position: absolute;
+  top: 3%;
+  transform: rotate(-10deg);
+  border-radius: 20% 44% 27% 33% / 26% 29% 45% 30%;
+}
+
+.specs__lens--shadow {
+  box-shadow: calc(-10 * var(--unit)) calc(25 * var(--unit))
+      calc(15 * var(--unit)) var(--shadow-color),
+    0 calc(25 * var(--unit)) calc(15 * var(--unit)) var(--shadow-color) inset;
+  clip-path: polygon(50% 0, 100% 0, 100% 120%, 16% 120%, 18% 100%);
+}
+
+.specs__lens--right {
+  right: 0;
+  /* rotateYは要素を垂直軸を中心に回転させる */
+  transform: rotate(10deg) rotateY(180deg);
+}
+
+.specs__bridge {
+  position: absolute;
+  height: 120%;
+  width: 28%;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: calc(52 * var(--unit)) solid var(--specs-frame);
+  clip-path: inset(0 20% 60% 20%);
+}
+
+.specs__arms {
+  background-color: var(--specs-frame);
+  height: 12%;
+  width: 90%;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* polygonでは頂点の座標を指定して、頂点を繋いだ部分を切り抜く */
+  /* 頂点の指定方法はx座標 y座標で指定でき、0 0が左上、100% 0が右上、100％ 100%が右下、 0 100%が左下 */
+  /* この場合、頂点は8つある */
+  clip-path: polygon(
+    0 0,
+    18% 45%,
+    82% 45%,
+    100% 0,
+    100% 80%,
+    82% 100%,
+    19% 100%,
+    0 80%
+  );
+}
