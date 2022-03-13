@@ -4,7 +4,7 @@
   --bg: #ffd500;
   --shell: #fff;
   --shell-outline: #666;
-  ---specs-frame: black;
+  --specs-frame: black;
   --size: 50;
   /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
   /* 1vminは値が小さい方の0.01倍になる */
@@ -93,8 +93,9 @@
 }
 
 .specs__lens {
-  opacity: 0.25;
-  border: calc(44 * var(--unit)) solid var(---specs-frame);
+  opacity: 1;
+  /* opacity: 0.25; */
+  border: calc(44 * var(--unit)) solid var(--specs-frame);
   width: 46%;
   height: 94%;
   position: absolute;
@@ -107,4 +108,16 @@
   right: 0;
   /* rotateYは要素を垂直軸を中心に回転させる */
   transform: rotate(10deg) rotateY(180deg);
+}
+
+.specs__bridge {
+  position: absolute;
+  height: 120%;
+  width: 28%;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: calc(52 * var(--unit)) solid var(--specs-frame);
+  clip-path: inset(0 20% 60% 20%);
 }

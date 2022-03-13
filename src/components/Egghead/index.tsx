@@ -22,7 +22,7 @@ export const Egghead: VFC = () => {
         <div className="egg__specs specs">
           <div className="specs__lens specs__lens--left" />
           <div className="specs__lens specs__lens--right" />
-          <div className="specs_bridge" />
+          <div className="specs__bridge" />
         </div>
       </div>
     </div>
