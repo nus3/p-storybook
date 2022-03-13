@@ -4,22 +4,14 @@
   --bg: #ffd500;
   --shell: #fff;
   --shell-outline: #666;
-  --specs-frame: black;
+  --specs-frame: #222;
+  --shadow-color: hsla(0, 0%, 10%, 0.5);
   --size: 50;
   /* vminはビューポートの幅と高さのうち値が小さい方に対する割合 */
   /* 1vminは値が小さい方の0.01倍になる */
   --unit: calc((var(--size) / 769) * 1vmin);
 }
 
-.img {
-  opacity: 0;
-}
-
-.egg {
-  background-color: hsla(0, 100%, 50%, 0.2);
-}
-
-.img,
 .egg {
   /* 元の画像の高さと幅をビューポート分、掛けることでレスポンシブにしている */
   height: calc(769 * var(--unit));
@@ -96,6 +88,13 @@
   top: 3%;
   transform: rotate(-10deg);
   border-radius: 20% 44% 27% 33% / 26% 29% 45% 30%;
+}
+
+.specs__lens--shadow {
+  box-shadow: calc(-10 * var(--unit)) calc(25 * var(--unit))
+      calc(15 * var(--unit)) var(--shadow-color),
+    0 calc(25 * var(--unit)) calc(15 * var(--unit)) var(--shadow-color) inset;
+  clip-path: polygon(50% 0, 100% 0, 100% 120%, 16% 120%, 18% 100%);
 }
 
 .specs__lens--right {

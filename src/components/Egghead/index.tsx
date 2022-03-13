@@ -7,11 +7,6 @@ import './styles.css'
 export const Egghead: VFC = () => {
   return (
     <div className="wrap">
-      <img
-        className="img"
-        src={createPublicPath(`/images/egghead.png`)}
-        alt={`egghead icon`}
-      />
       <div className="egg">
         <div className="specs__arms" />
         <div className="egg__shell shell">
@@ -22,6 +17,8 @@ export const Egghead: VFC = () => {
         <div className="egg__specs specs">
           <div className="specs__lens specs__lens--left" />
           <div className="specs__lens specs__lens--right" />
+          <div className="specs__lens specs__lens--left specs__lens--shadow" />
+          <div className="specs__lens specs__lens--right specs__lens--shadow" />
           <div className="specs__bridge" />
         </div>
       </div>
