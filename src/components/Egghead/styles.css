@@ -12,7 +12,7 @@
 }
 
 .img {
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .egg {
@@ -31,7 +31,7 @@
 }
 
 .shell {
-  background-color: hsla(180, 100%, 50%, 0.2);
+  /* background-color: hsla(180, 100%, 50%, 0.2); */
   /* 実際に画面を見て微調整している */
   height: 95%;
   width: 74%;
@@ -39,11 +39,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
 }
 
 .shell__piece--top {
-  opacity: 0.5;
   height: 108%;
   width: 106%;
   /* 4角の丸みの半径を指定する際にスラッシュを指定すると水平方向 / 垂直方向になる */
@@ -55,7 +53,6 @@
 }
 
 .shell__piece--middle {
-  opacity: 0.5;
   height: 100%;
   width: 98%;
   border-radius: 50% 50% 0 0 / 85% 85% 0 0;
@@ -66,7 +63,6 @@
 }
 
 .shell__piece--bottom {
-  opacity: 0.5;
   border-radius: 50% / 62% 62% 38% 38%;
   width: 100%;
   height: 100%;
@@ -83,7 +79,7 @@
 }
 
 .specs {
-  background-color: hsla(180, 100%, 50%, 0.2);
+  /* background-color: hsla(180, 100%, 50%, 0.2); */
   height: 30.5%;
   width: 95%;
   position: absolute;
@@ -93,8 +89,6 @@
 }
 
 .specs__lens {
-  opacity: 1;
-  /* opacity: 0.25; */
   border: calc(44 * var(--unit)) solid var(--specs-frame);
   width: 46%;
   height: 94%;
@@ -120,4 +114,27 @@
   border-radius: 50%;
   border: calc(52 * var(--unit)) solid var(--specs-frame);
   clip-path: inset(0 20% 60% 20%);
+}
+
+.specs__arms {
+  background-color: var(--specs-frame);
+  height: 12%;
+  width: 90%;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* polygonでは頂点の座標を指定して、頂点を繋いだ部分を切り抜く */
+  /* 頂点の指定方法はx座標 y座標で指定でき、0 0が左上、100% 0が右上、100％ 100%が右下、 0 100%が左下 */
+  /* この場合、頂点は8つある */
+  clip-path: polygon(
+    0 0,
+    18% 45%,
+    82% 45%,
+    100% 0,
+    100% 80%,
+    82% 100%,
+    19% 100%,
+    0 80%
+  );
 }
