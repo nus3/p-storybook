@@ -1,6 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
 import { VFC } from 'react'
-import { createPublicPath } from 'utils/path'
 
 import './styles.css'
 
