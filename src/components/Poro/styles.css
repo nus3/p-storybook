@@ -285,14 +285,12 @@ img,
   left: 32%;
   width: 41%;
   height: 13%;
-
-  background-color: hsla(60, 100%, 50%, 0.1);
 }
 
 .poro-head_base {
   position: absolute;
 
-  opacity: 0.2;
+  opacity: 0;
 }
 
 .poro-head__left-eye {
@@ -339,6 +337,58 @@ img,
   left: 2%;
   top: 58%;
   transform: rotate(18deg);
+  width: 17%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: var(--poro-cheek);
+}
+
+.poro-head__right-eye {
+  left: 67%;
+  top: 26%;
+  width: 16%;
+  height: 58%;
+  border-radius: 31% 69% 32% 68% / 31% 48% 50% 69%;
+  background-color: var(--poro-eye);
+}
+
+.poro-head__right-eye_bottom {
+  left: 74%;
+  top: 57%;
+  transform: rotate(46deg);
+  width: 13%;
+  height: 57%;
+  border-radius: 50%;
+  border: calc(1 * var(--unit)) solid var(--poro-eye);
+  background-color: var(--poro-body);
+}
+
+.poro-head__right-eye_bottom::before {
+  content: '';
+  position: absolute;
+  left: 1%;
+  top: -19%;
+  transform: rotate(357deg);
+  width: 174%;
+  height: 194%;
+  border-radius: 50%;
+  background-color: var(--poro-body);
+}
+
+.poro-head__right-eye_bright {
+  left: 13%;
+  top: 6%;
+  transform: rotate(347deg);
+  width: 44%;
+  height: 27%;
+  border-radius: 31% 69% 32% 68% / 31% 76% 24% 69%;
+  background-color: var(--poro-eye-bright);
+}
+
+.poro-head__right-cheek {
+  left: 80%;
+  top: 67%;
+  transform: rotate(343deg);
   width: 17%;
   height: 30%;
   border-radius: 50%;
