@@ -2,6 +2,13 @@
   --bg: #1d2d50;
   --poro-body: #f0f6f4;
   --poro-outline: #767c99;
+  --poro-eye: #29212e;
+  --poro-eye-bright: #ffffff;
+  --poro-cheek: #dd91bf;
+  --poro-crow: #3a2e2e;
+  --cookie: #885935;
+  --cookie-cream: #b9d2dd;
+  --cookie-heard: #e23d4a;
   --size: 50;
   --unit: calc((var(--size) / 256) * 1vmin);
 
@@ -27,21 +34,21 @@ img,
   height: calc(256 * var(--unit));
 }
 
+/* ------- poro-body ------- */
+
 .poro-body {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
   width: 80%;
   height: 80%;
-
-  background-color: hsla(60, 100%, 50%, 0.1);
 }
 
 .poro-body_base {
   position: absolute;
   background-color: var(--poro-body);
 
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .poro-body__top-right {
@@ -268,4 +275,72 @@ img,
   transform: rotate(52deg);
   border-radius: 50%;
   background-color: var(--poro-body);
+}
+
+/* ------- poro-head ------- */
+
+.poro-head {
+  position: absolute;
+  top: 30%;
+  left: 32%;
+  width: 41%;
+  height: 13%;
+
+  background-color: hsla(60, 100%, 50%, 0.1);
+}
+
+.poro-head_base {
+  position: absolute;
+
+  opacity: 0.2;
+}
+
+.poro-head__left-eye {
+  left: 15%;
+  top: 12%;
+  width: 17%;
+  height: 58%;
+  border-radius: 60% 40% 56% 43% / 65% 53% 47% 34%;
+  background-color: var(--poro-eye);
+}
+
+.poro-head__left-eye_bottom {
+  left: 8%;
+  top: 52%;
+  width: 17%;
+  height: 58%;
+  border-radius: 31% 69% 32% 68% / 31% 48% 50% 69%;
+  border: calc(1 * var(--unit)) solid var(--poro-eye);
+  background-color: var(--poro-body);
+}
+
+.poro-head__left-eye_bottom::before {
+  content: '';
+  position: absolute;
+  left: -43%;
+  top: -19%;
+  transform: rotate(304deg);
+  width: 158%;
+  height: 194%;
+  border-radius: 50%;
+  background-color: var(--poro-body);
+}
+
+.poro-head__left-eye_bright {
+  left: 46%;
+  top: 10%;
+  width: 45%;
+  height: 28%;
+  border-radius: 31% 69% 32% 68% / 31% 76% 24% 69%;
+  background-color: var(--poro-eye-bright);
+}
+
+.poro-head__left-cheek {
+  left: 2%;
+  top: 58%;
+  transform: rotate(18deg);
+  width: 17%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: var(--poro-cheek);
 }

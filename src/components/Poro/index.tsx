@@ -22,6 +22,13 @@ export const Poro: VFC = () => {
           <div className="poro-body_base poro-body__right-hand" />
           <div className="poro-body_base poro-body__right-foot" />
         </div>
+        <div className="poro-head">
+          <div className="poro-head_base poro-head__left-eye">
+            <div className="poro-head_base poro-head__left-eye_bright" />
+          </div>
+          <div className="poro-head_base poro-head__left-eye_bottom" />
+          <div className="poro-head_base poro-head__left-cheek" />
+        </div>
       </div>
     </div>
   )
