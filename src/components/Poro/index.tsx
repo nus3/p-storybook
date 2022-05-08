@@ -4,6 +4,12 @@ import { createPublicPath } from 'utils/path'
 
 import './styles.css'
 
+// TODO: 残ってるところ
+// 口
+// 爪
+// 角
+// クッキー
+
 export const Poro: VFC = () => {
   return (
     <div className="poro-wrap">
