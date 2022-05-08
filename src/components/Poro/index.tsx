@@ -2,19 +2,20 @@
 import { VFC } from 'react'
 import { createPublicPath } from 'utils/path'
 
-import styles from './styles.module.css'
+import './styles.css'
 
 export const Poro: VFC = () => {
   return (
-    <div className={styles.wrap}>
-      <img
-        className={styles.img}
-        src={createPublicPath(`/images/poro.png`)}
-        alt={`poro icon`}
-      />
-      <div className={styles.poroWrap}>
-        <div className={styles.poro1} />
-        <div className={styles.poro2} />
+    <div className="poro-wrap">
+      <img src={createPublicPath(`/images/poro.png`)} alt={`poro icon`} />
+      <div className="poro">
+        <div className="poro-body">
+          <div className="poro-body_base poro-body__top" />
+          <div className="poro-body_base poro-body__top-left-wrap" />
+          <div className="poro-body_base poro-body__left-hand" />
+          <div className="poro-body_base poro-body__bottom-left" />
+          <div className="poro-body_base poro-body__left-foot" />
+        </div>
       </div>
     </div>
   )

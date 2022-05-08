@@ -1,0 +1,145 @@
+.poro-wrap {
+  --bg: #1d2d50;
+  --poro-body: #f0f6f4;
+  --poro-outline: #767c99;
+  --size: 50;
+  --unit: calc((var(--size) / 256) * 1vmin);
+
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+img {
+  opacity: 0.2;
+}
+
+/* .poro {
+  background-color: hsla(60, 100%, 50%, 0.1);
+} */
+
+img,
+.poro {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(256 * var(--unit));
+  height: calc(256 * var(--unit));
+}
+
+.poro-body {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 80%;
+  height: 80%;
+
+  background-color: hsla(60, 100%, 50%, 0.1);
+}
+
+.poro-body_base {
+  position: absolute;
+  background-color: var(--poro-body);
+
+  /* opacity: 0; */
+}
+
+.poro-body__top {
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 25%;
+  width: 83%;
+  height: 65%;
+  border-radius: 51% 49% 0% 0% / 100% 100% 0% 0%;
+  border: calc(2 * var(--unit)) solid var(--poro-outline);
+}
+
+.poro-body__top-left-wrap {
+  left: 9%;
+  top: 43%;
+  width: 6%;
+  height: 23%;
+  transform: rotate(51deg);
+  border: calc(2 * var(--unit)) solid var(--poro-outline);
+  border-radius: 50% 40%;
+}
+
+.poro-body__top-left-wrap::before {
+  content: '';
+  position: absolute;
+  left: 36%;
+  top: -16%;
+  width: 200%;
+  height: 132%;
+  transform: rotate(350deg);
+  border-radius: 50%;
+  background-color: var(--poro-body);
+}
+
+.poro-body__left-hand {
+  left: 4%;
+  top: 56%;
+  width: 23%;
+  height: 21%;
+  border: calc(2 * var(--unit)) solid var(--poro-outline);
+  border-radius: 40% 55% 51% 48% / 54% 47% 28% 44%;
+
+  z-index: 19;
+}
+
+.poro-body__left-hand::before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  top: -13%;
+  width: 73%;
+  height: 127%;
+  transform: rotate(17deg);
+  border-radius: 50%;
+  opacity: 0.8;
+  background-color: var(--poro-body);
+}
+
+.poro-body__bottom-left {
+  left: 2%;
+  top: 66%;
+  width: 4%;
+  height: 13%;
+  transform: rotate(17deg);
+  border: calc(2 * var(--unit)) solid var(--poro-outline);
+  border-radius: 40% 55% 62% 30% / 54% 47% 43% 44%;
+
+  z-index: 18;
+}
+
+.poro-body__bottom-left::before {
+  content: '';
+  position: absolute;
+  left: 24%;
+  top: -33%;
+  width: 250%;
+  height: 140%;
+  transform: rotate(349deg);
+  border-radius: 50%;
+  background-color: var(--poro-body);
+}
+
+.poro-body__left-foot {
+  left: 3%;
+  top: 74%;
+  width: 24%;
+  height: 23%;
+  border: calc(2 * var(--unit)) solid var(--poro-outline);
+  border-radius: 9% 49% 17% 70% / 27% 61% 34% 63%;
+}
+
+.poro-body__left-foot::before {
+  content: '';
+  position: absolute;
+  left: -3%;
+  top: -15%;
+  transform: rotate(26deg);
+  width: 97%;
+  height: 26%;
+  background-color: var(--poro-body);
+}
